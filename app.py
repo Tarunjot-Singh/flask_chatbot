@@ -4,7 +4,10 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 
 app = Flask(__name__)
 
-english_bot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.MongoDatabaseAdapter")
+english_bot = ChatBot("English Bot",
+                     storage_adapter = "chatterbot.storage.MongoDatabaseAdapter",
+                     database = "heroku_7d4tfjr7",
+                     database_uri = "mongodb://heroku_7d4tfjr7:e8v40v0283f92rv0ueqhuuit76@ds359298.mlab.com:59298/heroku_7d4tfjr7")
 trainer = ChatterBotCorpusTrainer(english_bot)
 trainer.train("chatterbot.corpus.english")
 
